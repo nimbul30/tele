@@ -42,9 +42,5 @@ function stopScrolling() {
 }
 
 toggleEditorBtn.addEventListener('click', () => {
-    if (textInput.style.display === 'none') {
-        textInput.style.display = 'block';
-    } else {
-        textInput.style.display = 'none';
-    }
+    textInput.classList.toggle('expanded');
 });

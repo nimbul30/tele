@@ -20,10 +20,6 @@ body {
     margin-left: 10px;
 }
 
-#toggleEditorBtn {
-    margin-left: 15px;
-}
-
 #textInput {
     display: block;
     width: 80%;
@@ -31,6 +27,11 @@ body {
     height: 150px;
     font-size: 16px;
     padding: 10px;
+    transition: height 0.3s ease-in-out;
+}
+
+#textInput.expanded {
+    height: 400px;
 }
 
 #teleprompter {
