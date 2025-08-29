@@ -24,14 +24,13 @@ body {
     display: block;
     width: 80%;
     margin: 20px auto;
-    height: 150px;
     font-size: 16px;
     padding: 10px;
-    resize: vertical;
+    flex-grow: 1;
+    min-height: 50px; /* Prevent it from disappearing */
 }
 
 #teleprompter {
-    flex-grow: 1;
     background-color: black;
     color: white;
     overflow-y: scroll;
@@ -39,7 +38,8 @@ body {
     line-height: 1.5;
     padding: 20px;
     text-align: center;
-    min-height: 0;
+    height: 70vh; /* Initial height */
+    resize: vertical;
 }
 
 #textDisplay {
