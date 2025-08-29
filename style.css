@@ -43,4 +43,5 @@ body {
 #textDisplay {
     width: 80%;
     margin: 0 auto;
+    white-space: pre-wrap;
 }
