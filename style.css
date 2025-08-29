@@ -27,11 +27,7 @@ body {
     height: 150px;
     font-size: 16px;
     padding: 10px;
-    transition: height 0.3s ease-in-out;
-}
-
-#textInput.expanded {
-    height: 400px;
+    resize: vertical;
 }
 
 #teleprompter {
@@ -43,6 +39,7 @@ body {
     line-height: 1.5;
     padding: 20px;
     text-align: center;
+    min-height: 0;
 }
 
 #textDisplay {
