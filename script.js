@@ -9,7 +9,8 @@ let isScrolling = false;
 let scrollInterval;
 
 textInput.addEventListener('input', () => {
-    textDisplay.innerText = textInput.value;
+    const textWithBreaks = textInput.value.replace(/\n/g, '<br>');
+    textDisplay.innerHTML = textWithBreaks;
 });
 
 fontSizeInput.addEventListener('input', () => {
