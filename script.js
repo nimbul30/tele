@@ -4,6 +4,7 @@ const fontSizeInput = document.getElementById('fontSize');
 const textInput = document.getElementById('textInput');
 const teleprompter = document.getElementById('teleprompter');
 const textDisplay = document.getElementById('textDisplay');
+const toggleEditorBtn = document.getElementById('toggleEditorBtn');
 
 let isScrolling = false;
 let scrollInterval;
@@ -39,3 +40,11 @@ function stopScrolling() {
     startStopBtn.innerText = 'Start';
     clearInterval(scrollInterval);
 }
+
+toggleEditorBtn.addEventListener('click', () => {
+    if (textInput.style.display === 'none') {
+        textInput.style.display = 'block';
+    } else {
+        textInput.style.display = 'none';
+    }
+});

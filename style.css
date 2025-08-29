@@ -20,6 +20,10 @@ body {
     margin-left: 10px;
 }
 
+#toggleEditorBtn {
+    margin-left: 15px;
+}
+
 #textInput {
     display: block;
     width: 80%;
