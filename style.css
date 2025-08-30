@@ -4,7 +4,7 @@ body {
     flex-direction: column;
     height: 100vh;
     margin: 0;
-    background-color: transparent;
+    background-color: black;
 }
 
 .controls {
@@ -33,7 +33,7 @@ body {
 }
 
 #teleprompter {
-    background-color: transparent;
+    background-color: black;
     color: white;
     overflow-y: scroll;
     font-size: 48px;
@@ -48,16 +48,4 @@ body {
     width: 80%;
     margin: 0 auto;
     white-space: pre-wrap;
-}
-
-.hidden {
-    display: none;
-}
-
-#toggleControlsBtn, #toggleTextAreaBtn {
-    background-color: #555;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
 }
