@@ -1,7 +1,6 @@
 const startStopBtn = document.getElementById('startStopBtn');
 const scrollUpBtn = document.getElementById('scrollUpBtn');
 const scrollDownBtn = document.getElementById('scrollDownBtn');
-const pushBtn = document.getElementById('pushBtn');
 const speedInput = document.getElementById('speed');
 const fontSizeInput = document.getElementById('fontSize');
 const textInput = document.getElementById('textInput');
@@ -11,7 +10,7 @@ const textDisplay = document.getElementById('textDisplay');
 let isScrolling = false;
 let scrollInterval;
 
-pushBtn.addEventListener('click', () => {
+textInput.addEventListener('input', () => {
     const textWithBreaks = textInput.value.replace(/\r\n?|\n/g, '<br>');
     textDisplay.innerHTML = textWithBreaks;
 });
