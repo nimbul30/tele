@@ -1,5 +1,6 @@
 const startStopBtn = document.getElementById('startStopBtn');
-const jumpBackBtn = document.getElementById('jumpBackBtn');
+const scrollUpBtn = document.getElementById('scrollUpBtn');
+const scrollDownBtn = document.getElementById('scrollDownBtn');
 const pushBtn = document.getElementById('pushBtn');
 const speedInput = document.getElementById('speed');
 const fontSizeInput = document.getElementById('fontSize');
@@ -27,10 +28,6 @@ startStopBtn.addEventListener('click', () => {
     }
 });
 
-jumpBackBtn.addEventListener('click', () => {
-    teleprompter.scrollTop -= 200;
-});
-
 function startScrolling() {
     isScrolling = true;
     startStopBtn.innerText = 'Stop';
@@ -45,3 +42,34 @@ function stopScrolling() {
     startStopBtn.innerText = 'Start';
     clearInterval(scrollInterval);
 }
+
+let scrollUpInterval;
+let scrollDownInterval;
+
+scrollUpBtn.addEventListener('mousedown', () => {
+    scrollUpInterval = setInterval(() => {
+        teleprompter.scrollTop -= 5;
+    }, 20);
+});
+
+scrollUpBtn.addEventListener('mouseup', () => {
+    clearInterval(scrollUpInterval);
+});
+
+scrollUpBtn.addEventListener('mouseleave', () => {
+    clearInterval(scrollUpInterval);
+});
+
+scrollDownBtn.addEventListener('mousedown', () => {
+    scrollDownInterval = setInterval(() => {
+        teleprompter.scrollTop += 5;
+    }, 20);
+});
+
+scrollDownBtn.addEventListener('mouseup', () => {
+    clearInterval(scrollDownInterval);
+});
+
+scrollDownBtn.addEventListener('mouseleave', () => {
+    clearInterval(scrollDownInterval);
+});
