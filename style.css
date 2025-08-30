@@ -49,3 +49,15 @@ body {
     margin: 0 auto;
     white-space: pre-wrap;
 }
+
+.hidden {
+    display: none;
+}
+
+#toggleControlsBtn, #toggleTextAreaBtn {
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
