@@ -1,4 +1,6 @@
 const startStopBtn = document.getElementById('startStopBtn');
+const scrollUpBtn = document.getElementById('scrollUpBtn');
+const scrollDownBtn = document.getElementById('scrollDownBtn');
 const speedInput = document.getElementById('speed');
 const fontSizeInput = document.getElementById('fontSize');
 const textInput = document.getElementById('textInput');
@@ -9,7 +11,8 @@ let isScrolling = false;
 let scrollInterval;
 
 textInput.addEventListener('input', () => {
-    textDisplay.innerText = textInput.value;
+    const textWithBreaks = textInput.value.replace(/\r\n?|\n/g, '<br>');
+    textDisplay.innerHTML = textWithBreaks;
 });
 
 fontSizeInput.addEventListener('input', () => {
@@ -27,8 +30,8 @@ startStopBtn.addEventListener('click', () => {
 function startScrolling() {
     isScrolling = true;
     startStopBtn.innerText = 'Stop';
-    const speed = parseInt(speedInput.value, 10);
     scrollInterval = setInterval(() => {
+        const speed = parseInt(speedInput.value, 10);
         teleprompter.scrollTop += speed;
     }, 100);
 }
@@ -38,3 +41,34 @@ function stopScrolling() {
     startStopBtn.innerText = 'Start';
     clearInterval(scrollInterval);
 }
+
+let scrollUpInterval;
+let scrollDownInterval;
+
+scrollUpBtn.addEventListener('mousedown', () => {
+    scrollUpInterval = setInterval(() => {
+        teleprompter.scrollTop -= 5;
+    }, 20);
+});
+
+scrollUpBtn.addEventListener('mouseup', () => {
+    clearInterval(scrollUpInterval);
+});
+
+scrollUpBtn.addEventListener('mouseleave', () => {
+    clearInterval(scrollUpInterval);
+});
+
+scrollDownBtn.addEventListener('mousedown', () => {
+    scrollDownInterval = setInterval(() => {
+        teleprompter.scrollTop += 5;
+    }, 20);
+});
+
+scrollDownBtn.addEventListener('mouseup', () => {
+    clearInterval(scrollDownInterval);
+});
+
+scrollDownBtn.addEventListener('mouseleave', () => {
+    clearInterval(scrollDownInterval);
+});
