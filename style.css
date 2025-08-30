@@ -4,7 +4,7 @@ body {
     flex-direction: column;
     height: 100vh;
     margin: 0;
-    background-color: #f0f0f0;
+    background-color: transparent;
 }
 
 .controls {
@@ -24,23 +24,26 @@ body {
     display: block;
     width: 80%;
     margin: 20px auto;
-    height: 150px;
     font-size: 16px;
     padding: 10px;
+    flex-grow: 1;
+    min-height: 50px; /* Prevent it from disappearing */
 }
 
 #teleprompter {
-    flex-grow: 1;
-    background-color: black;
+    background-color: transparent;
     color: white;
     overflow-y: scroll;
     font-size: 48px;
     line-height: 1.5;
     padding: 20px;
     text-align: center;
+    height: 70vh; /* Initial height */
+    resize: vertical;
 }
 
 #textDisplay {
     width: 80%;
     margin: 0 auto;
+    white-space: pre-wrap;
 }
