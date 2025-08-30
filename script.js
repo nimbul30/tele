@@ -6,6 +6,9 @@ const fontSizeInput = document.getElementById('fontSize');
 const textInput = document.getElementById('textInput');
 const teleprompter = document.getElementById('teleprompter');
 const textDisplay = document.getElementById('textDisplay');
+const toggleControlsBtn = document.getElementById('toggleControlsBtn');
+const toggleTextAreaBtn = document.getElementById('toggleTextAreaBtn');
+const controls = document.querySelector('.controls');
 
 let isScrolling = false;
 let scrollInterval;
@@ -71,4 +74,12 @@ scrollDownBtn.addEventListener('mouseup', () => {
 
 scrollDownBtn.addEventListener('mouseleave', () => {
     clearInterval(scrollDownInterval);
+});
+
+toggleControlsBtn.addEventListener('click', () => {
+    controls.classList.toggle('hidden');
+});
+
+toggleTextAreaBtn.addEventListener('click', () => {
+    textInput.classList.toggle('hidden');
 });
