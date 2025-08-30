@@ -4,7 +4,7 @@ body {
     flex-direction: column;
     height: 100vh;
     margin: 0;
-    background-color: transparent;
+    background-color: black;
 }
 
 .controls {
@@ -33,7 +33,7 @@ body {
 }
 
 #teleprompter {
-    background-color: transparent;
+    background-color: black;
     color: white;
     overflow-y: scroll;
     font-size: 48px;
