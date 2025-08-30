@@ -28,6 +28,8 @@ body {
     padding: 10px;
     flex-grow: 1;
     min-height: 50px; /* Prevent it from disappearing */
+    background-color: white;
+    color: black;
 }
 
 #teleprompter {
