@@ -1,4 +1,6 @@
 const startStopBtn = document.getElementById('startStopBtn');
+const jumpBackBtn = document.getElementById('jumpBackBtn');
+const pushBtn = document.getElementById('pushBtn');
 const speedInput = document.getElementById('speed');
 const fontSizeInput = document.getElementById('fontSize');
 const textInput = document.getElementById('textInput');
@@ -8,7 +10,7 @@ const textDisplay = document.getElementById('textDisplay');
 let isScrolling = false;
 let scrollInterval;
 
-textInput.addEventListener('input', () => {
+pushBtn.addEventListener('click', () => {
     const textWithBreaks = textInput.value.replace(/\r\n?|\n/g, '<br>');
     textDisplay.innerHTML = textWithBreaks;
 });
@@ -23,6 +25,10 @@ startStopBtn.addEventListener('click', () => {
     } else {
         startScrolling();
     }
+});
+
+jumpBackBtn.addEventListener('click', () => {
+    teleprompter.scrollTop -= 200;
 });
 
 function startScrolling() {
