@@ -6,6 +6,7 @@ const fontSizeInput = document.getElementById('fontSize');
 const textInput = document.getElementById('textInput');
 const teleprompter = document.getElementById('teleprompter');
 const textDisplay = document.getElementById('textDisplay');
+const toggleInputBtn = document.getElementById('toggleInputBtn');
 
 let isScrolling = false;
 let scrollInterval;
@@ -71,4 +72,13 @@ scrollDownBtn.addEventListener('mouseup', () => {
 
 scrollDownBtn.addEventListener('mouseleave', () => {
     clearInterval(scrollDownInterval);
+});
+
+toggleInputBtn.addEventListener('click', () => {
+    textInput.classList.toggle('hidden');
+    if (textInput.classList.contains('hidden')) {
+        toggleInputBtn.innerText = 'Show Input';
+    } else {
+        toggleInputBtn.innerText = 'Hide Input';
+    }
 });
