@@ -49,3 +49,7 @@ body {
     margin: 0 auto;
     white-space: pre-wrap;
 }
+
+.hidden {
+    display: none;
+}
