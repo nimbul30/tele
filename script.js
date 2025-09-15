@@ -32,7 +32,7 @@ function startScrolling() {
     isScrolling = true;
     startStopBtn.innerText = 'Stop';
     scrollInterval = setInterval(() => {
-        const speed = parseInt(speedInput.value, 10) / 10;
+        const speed = parseInt(speedInput.value, 10) / 20;
         teleprompter.scrollTop += speed;
     }, 100);
 }
