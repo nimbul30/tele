@@ -1,55 +1,68 @@
 body {
-    font-family: sans-serif;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    margin: 0;
-    background-color: black;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+  background-color: black;
+}
+
+.video-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  background-color: #222;
+}
+
+#camera-feed,
+#recorded-video {
+  width: 45%;
+  border: 1px solid #444;
 }
 
 .controls {
-    padding: 10px;
-    background-color: #333;
-    color: white;
-    display: flex;
-    align-items: center;
-    gap: 15px;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .controls label {
-    margin-left: 10px;
+  margin-left: 10px;
 }
 
 #textInput {
-    display: block;
-    width: 80%;
-    margin: 20px auto;
-    font-size: 16px;
-    padding: 10px;
-    flex-grow: 1;
-    min-height: 50px; /* Prevent it from disappearing */
-    background-color: white;
-    color: black;
+  display: block;
+  width: 80%;
+  margin: 20px auto;
+  font-size: 16px;
+  padding: 10px;
+  flex-grow: 1;
+  min-height: 50px; /* Prevent it from disappearing */
+  background-color: white;
+  color: black;
 }
 
 #teleprompter {
-    background-color: black;
-    color: white;
-    overflow-y: scroll;
-    font-size: 48px;
-    line-height: 1.5;
-    padding: 20px;
-    text-align: center;
-    height: 70vh; /* Initial height */
-    resize: vertical;
+  background-color: black;
+  color: white;
+  overflow-y: scroll;
+  font-size: 48px;
+  line-height: 1.5;
+  padding: 20px;
+  text-align: center;
+  height: 70vh; /* Initial height */
+  resize: vertical;
 }
 
 #textDisplay {
-    width: 80%;
-    margin: 0 auto;
-    white-space: pre-wrap;
+  width: 80%;
+  margin: 0 auto;
+  white-space: pre-wrap;
 }
 
 .hidden {
-    display: none !important;
+  display: none !important;
 }

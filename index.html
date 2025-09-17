@@ -1,26 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Teleprompter</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="video-container">
+      <video id="camera-feed" autoplay muted></video>
+      <video id="recorded-video" controls></video>
+    </div>
     <div class="controls">
-        <button id="startStopBtn">Start</button>
-        <button id="scrollUpBtn">Scroll Up</button>
-        <button id="scrollDownBtn">Scroll Down</button>
-        <button id="toggleInputBtn">Hide Input</button>
-        <label for="speed">Speed:</label>
-        <input type="range" id="speed" min="1" max="200" value="100">
-        <label for="fontSize">Font Size:</label>
-        <input type="range" id="fontSize" min="12" max="72" value="24">
+      <button id="startStopBtn">Start</button>
+      <button id="scrollUpBtn">Scroll Up</button>
+      <button id="scrollDownBtn">Scroll Down</button>
+      <button id="toggleInputBtn">Hide Input</button>
+      <button id="recordBtn">Start Recording</button>
+      <label for="speed">Speed:</label>
+      <input type="range" id="speed" min="1" max="200" value="100" />
+      <label for="fontSize">Font Size:</label>
+      <input type="range" id="fontSize" min="12" max="72" value="24" />
     </div>
     <textarea id="textInput" placeholder="Paste your script here..."></textarea>
     <div id="teleprompter">
-        <div id="textDisplay"></div>
+      <div id="textDisplay"></div>
     </div>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
