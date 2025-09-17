@@ -6,9 +6,7 @@ const fontSizeInput = document.getElementById('fontSize');
 const textInput = document.getElementById('textInput');
 const teleprompter = document.getElementById('teleprompter');
 const textDisplay = document.getElementById('textDisplay');
-const toggleControlsBtn = document.getElementById('toggleControlsBtn');
-const toggleTextAreaBtn = document.getElementById('toggleTextAreaBtn');
-const controls = document.querySelector('.controls');
+const toggleInputBtn = document.getElementById('toggleInputBtn');
 
 let isScrolling = false;
 let scrollInterval;
@@ -34,7 +32,7 @@ function startScrolling() {
     isScrolling = true;
     startStopBtn.innerText = 'Stop';
     scrollInterval = setInterval(() => {
-        const speed = parseInt(speedInput.value, 10);
+        const speed = parseInt(speedInput.value, 10) / 20;
         teleprompter.scrollTop += speed;
     }, 100);
 }
@@ -76,10 +74,11 @@ scrollDownBtn.addEventListener('mouseleave', () => {
     clearInterval(scrollDownInterval);
 });
 
-toggleControlsBtn.addEventListener('click', () => {
-    controls.classList.toggle('hidden');
-});
-
-toggleTextAreaBtn.addEventListener('click', () => {
+toggleInputBtn.addEventListener('click', () => {
     textInput.classList.toggle('hidden');
+    if (textInput.classList.contains('hidden')) {
+        toggleInputBtn.innerText = 'Show Input';
+    } else {
+        toggleInputBtn.innerText = 'Hide Input';
+    }
 });
