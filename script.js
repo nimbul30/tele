@@ -1,24 +1,33 @@
 const startStopBtn = document.getElementById('startStopBtn');
 const scrollUpBtn = document.getElementById('scrollUpBtn');
 const scrollDownBtn = document.getElementById('scrollDownBtn');
-const speedInput = document.getElementById('speed');
-const fontSizeInput = document.getElementById('fontSize');
-const textInput = document.getElementById('textInput');
-const teleprompter = document.getElementById('teleprompter');
-const textDisplay = document.getElementById('textDisplay');
 const toggleInputBtn = document.getElementById('toggleInputBtn');
 const recordBtn = document.getElementById('recordBtn');
 const cameraFeed = document.getElementById('camera-feed');
 const recordedVideo = document.getElementById('recorded-video');
 
+const speedUpBtn = document.getElementById('speedUpBtn');
+const speedDownBtn = document.getElementById('speedDownBtn');
+const fontSizeUpBtn = document.getElementById('fontSizeUpBtn');
+const fontSizeDownBtn = document.getElementById('fontSizeDownBtn');
+
+const textInput = document.getElementById('textInput');
+const teleprompter = document.getElementById('teleprompter');
+const textDisplay = document.getElementById('textDisplay');
+
 let isScrolling = false;
 let scrollInterval;
 let mediaRecorder;
 let recordedChunks = [];
+let scrollSpeed = 5;
+let fontSize = 48;
 
 // Access Camera and Mic
 navigator.mediaDevices
-  .getUserMedia({ video: true, audio: true })
+  .getUserMedia({
+    video: true,
+    audio: true,
+  })
   .then((stream) => {
     cameraFeed.srcObject = stream;
     mediaRecorder = new MediaRecorder(stream);
@@ -30,7 +39,9 @@ navigator.mediaDevices
     };
 
     mediaRecorder.onstop = () => {
-      const blob = new Blob(recordedChunks, { type: 'video/webm' });
+      const blob = new Blob(recordedChunks, {
+        type: 'video/webm',
+      });
       recordedChunks = [];
       const videoURL = URL.createObjectURL(blob);
       recordedVideo.src = videoURL;
@@ -60,8 +71,26 @@ textInput.addEventListener('input', () => {
   textDisplay.innerHTML = textWithBreaks;
 });
 
-fontSizeInput.addEventListener('input', () => {
-  teleprompter.style.fontSize = `${fontSizeInput.value}px`;
+speedUpBtn.addEventListener('click', () => {
+  scrollSpeed++;
+});
+
+speedDownBtn.addEventListener('click', () => {
+  if (scrollSpeed > 1) {
+    scrollSpeed--;
+  }
+});
+
+fontSizeUpBtn.addEventListener('click', () => {
+  fontSize++;
+  teleprompter.style.fontSize = `${fontSize}px`;
+});
+
+fontSizeDownBtn.addEventListener('click', () => {
+  if (fontSize > 12) {
+    fontSize--;
+    teleprompter.style.fontSize = `${fontSize}px`;
+  }
 });
 
 startStopBtn.addEventListener('click', () => {
@@ -76,8 +105,7 @@ function startScrolling() {
   isScrolling = true;
   startStopBtn.innerText = 'Stop';
   scrollInterval = setInterval(() => {
-    const speed = parseInt(speedInput.value, 10) / 20;
-    teleprompter.scrollTop += speed;
+    teleprompter.scrollTop += scrollSpeed / 10;
   }, 100);
 }
 

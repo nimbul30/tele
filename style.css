@@ -40,7 +40,8 @@ body {
   font-size: 16px;
   padding: 10px;
   flex-grow: 1;
-  min-height: 50px; /* Prevent it from disappearing */
+  min-height: 50px;
+  /* Prevent it from disappearing */
   background-color: white;
   color: black;
 }
@@ -53,7 +54,8 @@ body {
   line-height: 1.5;
   padding: 20px;
   text-align: center;
-  height: 70vh; /* Initial height */
+  height: 70vh;
+  /* Initial height */
   resize: vertical;
 }
 
