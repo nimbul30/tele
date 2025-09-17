@@ -27,6 +27,7 @@ body {
   display: flex;
   align-items: center;
   gap: 15px;
+  flex-wrap: wrap;
 }
 
 .controls label {
@@ -67,4 +68,21 @@ body {
 
 .hidden {
   display: none !important;
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+  .video-container {
+    display: none;
+  }
+
+  #teleprompter {
+    height: 100vh;
+  }
+
+  .controls {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 1;
+  }
 }
