@@ -118,3 +118,9 @@ body {
     z-index: 2;
   }
 }
+
+@media (orientation: portrait) and (max-width: 900px) {
+  .main-container {
+    flex-direction: column-reverse;
+  }
+}
