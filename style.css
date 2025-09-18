@@ -1,3 +1,4 @@
+/* Base styles for desktop and default */
 body {
   font-family: sans-serif;
   display: flex;
@@ -5,14 +6,14 @@ body {
   height: 100vh;
   margin: 0;
   background-color: black;
-  overflow: hidden; /* Prevent body scrollbars */
+  overflow: hidden;
 }
 
 .main-container {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  height: calc(100vh - 100px); /* Adjust based on controls height */
+  height: calc(100vh - 100px);
 }
 
 .video-container {
@@ -82,7 +83,15 @@ body {
   display: none !important;
 }
 
-@media (orientation: landscape) and (max-width: 900px) {
+/* Mobile Portrait Styles */
+@media (max-width: 900px) and (orientation: portrait) {
+  .main-container {
+    flex-direction: column-reverse;
+  }
+}
+
+/* Mobile Landscape Styles */
+@media (max-width: 900px) and (orientation: landscape) {
   .main-container {
     flex-direction: row;
     height: calc(100vh - 50px);
@@ -103,7 +112,7 @@ body {
   #teleprompter {
     width: 50%;
     height: 100%;
-    padding-top: 50px; /* Added padding to fix text visibility */
+    padding-top: 50px;
   }
 
   .controls {
@@ -116,11 +125,5 @@ body {
     left: 50%;
     bottom: 50px;
     z-index: 2;
-  }
-}
-
-@media (orientation: portrait) and (max-width: 900px) {
-  .main-container {
-    flex-direction: column-reverse;
   }
 }
