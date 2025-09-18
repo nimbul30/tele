@@ -1,6 +1,4 @@
 const startStopBtn = document.getElementById('startStopBtn');
-const scrollUpBtn = document.getElementById('scrollUpBtn');
-const scrollDownBtn = document.getElementById('scrollDownBtn');
 const toggleInputBtn = document.getElementById('toggleInputBtn');
 const recordBtn = document.getElementById('recordBtn');
 const cameraFeed = document.getElementById('camera-feed');
@@ -121,37 +119,6 @@ function stopScrolling() {
   startStopBtn.innerText = 'Start';
   clearInterval(scrollInterval);
 }
-
-let scrollUpInterval;
-let scrollDownInterval;
-
-scrollUpBtn.addEventListener('mousedown', () => {
-  scrollUpInterval = setInterval(() => {
-    teleprompter.scrollTop -= 5;
-  }, 20);
-});
-
-scrollUpBtn.addEventListener('mouseup', () => {
-  clearInterval(scrollUpInterval);
-});
-
-scrollUpBtn.addEventListener('mouseleave', () => {
-  clearInterval(scrollUpInterval);
-});
-
-scrollDownBtn.addEventListener('mousedown', () => {
-  scrollDownInterval = setInterval(() => {
-    teleprompter.scrollTop += 5;
-  }, 20);
-});
-
-scrollDownBtn.addEventListener('mouseup', () => {
-  clearInterval(scrollDownInterval);
-});
-
-scrollDownBtn.addEventListener('mouseleave', () => {
-  clearInterval(scrollDownInterval);
-});
 
 toggleInputBtn.addEventListener('click', () => {
   textInput.classList.toggle('hidden');

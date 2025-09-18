@@ -103,6 +103,7 @@ body {
   #teleprompter {
     width: 50%;
     height: 100%;
+    padding-top: 50px; /* Added padding to fix text visibility */
   }
 
   .controls {
