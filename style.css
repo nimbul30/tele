@@ -16,18 +16,18 @@ body {
   height: calc(100vh - 100px);
 }
 
-.video-container {
-  display: flex;
-  justify-content: space-around;
-  padding: 10px;
-  background-color: #222;
+/* .video-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    background-color: #222;
 }
 
 #camera-feed,
 #recorded-video {
-  width: 45%;
-  border: 1px solid #444;
-}
+    width: 45%;
+    border: 1px solid #444;
+} */
 
 .controls {
   padding: 10px;
@@ -71,6 +71,7 @@ body {
   padding: 20px;
   text-align: center;
   flex-grow: 1;
+  height: 100%; /* Ensure teleprompter takes full height */
 }
 
 #textDisplay {
@@ -86,33 +87,19 @@ body {
 /* Mobile Portrait Styles */
 @media (max-width: 900px) and (orientation: portrait) {
   .main-container {
-    flex-direction: column-reverse;
+    flex-direction: column; /* Revert to default column for teleprompter only */
   }
 }
 
 /* Mobile Landscape Styles */
 @media (max-width: 900px) and (orientation: landscape) {
   .main-container {
-    flex-direction: row;
+    flex-direction: column; /* Revert for teleprompter only */
     height: calc(100vh - 50px);
   }
 
-  .video-container {
-    width: 50%;
-    height: 100%;
-    flex-direction: column;
-  }
-
-  #camera-feed,
-  #recorded-video {
-    width: 100%;
-    height: 50%;
-  }
-
   #teleprompter {
-    width: 50%;
-    height: 100%;
-    padding-top: 50px;
+    padding-top: 20px; /* Reset padding */
   }
 
   .controls {
@@ -120,10 +107,7 @@ body {
   }
 
   #textInput {
-    position: absolute;
-    width: 50%;
-    left: 50%;
-    bottom: 50px;
-    z-index: 2;
+    position: static; /* Revert position */
+    width: 80%;
   }
 }
