@@ -5,6 +5,14 @@ body {
   height: 100vh;
   margin: 0;
   background-color: black;
+  overflow: hidden; /* Prevent body scrollbars */
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: calc(100vh - 100px); /* Adjust based on controls height */
 }
 
 .video-container {
@@ -28,6 +36,14 @@ body {
   align-items: center;
   gap: 15px;
   flex-wrap: wrap;
+  justify-content: center;
+  height: 100px;
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .controls label {
@@ -40,9 +56,7 @@ body {
   margin: 20px auto;
   font-size: 16px;
   padding: 10px;
-  flex-grow: 1;
   min-height: 50px;
-  /* Prevent it from disappearing */
   background-color: white;
   color: black;
 }
@@ -55,9 +69,7 @@ body {
   line-height: 1.5;
   padding: 20px;
   text-align: center;
-  height: 70vh;
-  /* Initial height */
-  resize: vertical;
+  flex-grow: 1;
 }
 
 #textDisplay {
@@ -70,19 +82,38 @@ body {
   display: none !important;
 }
 
-@media (orientation: landscape) and (max-height: 500px) {
+@media (orientation: landscape) and (max-width: 900px) {
+  .main-container {
+    flex-direction: row;
+    height: calc(100vh - 50px);
+  }
+
   .video-container {
-    display: none;
+    width: 50%;
+    height: 100%;
+    flex-direction: column;
+  }
+
+  #camera-feed,
+  #recorded-video {
+    width: 100%;
+    height: 50%;
   }
 
   #teleprompter {
-    height: 100vh;
+    width: 50%;
+    height: 100%;
   }
 
   .controls {
+    height: 50px;
+  }
+
+  #textInput {
     position: absolute;
-    bottom: 0;
-    width: 100%;
-    z-index: 1;
+    width: 50%;
+    left: 50%;
+    bottom: 50px;
+    z-index: 2;
   }
 }

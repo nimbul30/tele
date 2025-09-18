@@ -7,9 +7,14 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="video-container">
-      <video id="camera-feed" autoplay muted></video>
-      <video id="recorded-video" controls hidden></video>
+    <div class="main-container">
+      <div class="video-container">
+        <video id="camera-feed" autoplay muted></video>
+        <video id="recorded-video" controls hidden></video>
+      </div>
+      <div id="teleprompter">
+        <div id="textDisplay"></div>
+      </div>
     </div>
     <div class="controls">
       <button id="startStopBtn">Start</button>
@@ -17,17 +22,18 @@
       <button id="scrollDownBtn">Scroll Down</button>
       <button id="toggleInputBtn">Hide Input</button>
       <button id="recordBtn">Start Recording</button>
-      <button id="speedDownBtn">-</button>
-      <label>Speed: <span id="speedValue">5</span></label>
-      <button id="speedUpBtn">+</button>
-      <button id="fontSizeDownBtn">-</button>
-      <label>Font Size: <span id="fontSizeValue">48</span></label>
-      <button id="fontSizeUpBtn">+</button>
+      <div class="control-group">
+        <button id="speedDownBtn">-</button>
+        <label>Speed: <span id="speedValue">5</span></label>
+        <button id="speedUpBtn">+</button>
+      </div>
+      <div class="control-group">
+        <button id="fontSizeDownBtn">-</button>
+        <label>Font Size: <span id="fontSizeValue">48</span></label>
+        <button id="fontSizeUpBtn">+</button>
+      </div>
     </div>
     <textarea id="textInput" placeholder="Paste your script here..."></textarea>
-    <div id="teleprompter">
-      <div id="textDisplay"></div>
-    </div>
     <script src="script.js"></script>
   </body>
 </html>
