@@ -16,19 +16,6 @@ body {
   height: calc(100vh - 100px);
 }
 
-/* .video-container {
-    display: flex;
-    justify-content: space-around;
-    padding: 10px;
-    background-color: #222;
-}
-
-#camera-feed,
-#recorded-video {
-    width: 45%;
-    border: 1px solid #444;
-} */
-
 .controls {
   padding: 10px;
   background-color: #333;
@@ -87,19 +74,19 @@ body {
 /* Mobile Portrait Styles */
 @media (max-width: 900px) and (orientation: portrait) {
   .main-container {
-    flex-direction: column; /* Revert to default column for teleprompter only */
+    flex-direction: column;
   }
 }
 
 /* Mobile Landscape Styles */
 @media (max-width: 900px) and (orientation: landscape) {
   .main-container {
-    flex-direction: column; /* Revert for teleprompter only */
+    flex-direction: column;
     height: calc(100vh - 50px);
   }
 
   #teleprompter {
-    padding-top: 20px; /* Reset padding */
+    padding-top: 20px;
   }
 
   .controls {
@@ -107,7 +94,7 @@ body {
   }
 
   #textInput {
-    position: static; /* Revert position */
+    position: static;
     width: 80%;
   }
 }

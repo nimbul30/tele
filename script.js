@@ -1,8 +1,5 @@
 const startStopBtn = document.getElementById('startStopBtn');
 const toggleInputBtn = document.getElementById('toggleInputBtn');
-const recordBtn = document.getElementById('recordBtn');
-const cameraFeed = document.getElementById('camera-feed');
-const recordedVideo = document.getElementById('recorded-video');
 
 const speedUpBtn = document.getElementById('speedUpBtn');
 const speedDownBtn = document.getElementById('speedDownBtn');
@@ -18,54 +15,8 @@ const textDisplay = document.getElementById('textDisplay');
 
 let isScrolling = false;
 let scrollInterval;
-let mediaRecorder;
-let recordedChunks = [];
 let scrollSpeed = 5;
 let fontSize = 48;
-
-// Access Camera and Mic
-navigator.mediaDevices
-  .getUserMedia({
-    video: true,
-    audio: true,
-  })
-  .then((stream) => {
-    cameraFeed.srcObject = stream;
-    mediaRecorder = new MediaRecorder(stream);
-
-    mediaRecorder.ondataavailable = (event) => {
-      if (event.data.size > 0) {
-        recordedChunks.push(event.data);
-      }
-    };
-
-    mediaRecorder.onstop = () => {
-      const blob = new Blob(recordedChunks, {
-        type: 'video/webm',
-      });
-      recordedChunks = [];
-      const videoURL = URL.createObjectURL(blob);
-      recordedVideo.src = videoURL;
-      recordedVideo.hidden = false;
-      cameraFeed.hidden = true;
-    };
-  })
-  .catch((err) => {
-    console.error('Error accessing media devices: ', err);
-  });
-
-recordBtn.addEventListener('click', () => {
-  if (mediaRecorder.state === 'recording') {
-    mediaRecorder.stop();
-    recordBtn.textContent = 'Start Recording';
-  } else {
-    recordedChunks = [];
-    mediaRecorder.start();
-    recordBtn.textContent = 'Stop Recording';
-    recordedVideo.hidden = true;
-    cameraFeed.hidden = false;
-  }
-});
 
 textInput.addEventListener('input', () => {
   const textWithBreaks = textInput.value.replace(/\r\n?|\n/g, '<br>');
